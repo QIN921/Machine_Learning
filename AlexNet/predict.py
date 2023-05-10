@@ -29,9 +29,9 @@ except Exception as e:
     print(e)
     exit(-1)
 
-# create model
+# create model.py
 model = AlexNet(num_classes=5)
-# load model weights
+# load model.py weights
 model_weight_path = "./AlexNet.pth"
 model.load_state_dict(torch.load(model_weight_path))
 model.eval()

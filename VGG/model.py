@@ -68,7 +68,7 @@ def vgg(model_name="vgg16", **kwargs):  # **字典
     try:
         cfg = cfgs[model_name]
     except:
-        print("Warning: model number {} not in cfgs dict!".format(model_name))
+        print("Warning: model.py number {} not in cfgs dict!".format(model_name))
         exit(-1)
     model = VGG(make_features(cfg), **kwargs)
     return model

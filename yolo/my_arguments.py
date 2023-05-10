@@ -22,11 +22,11 @@ class Args(object):
         self.parser.add_argument("--checkpoints_dir", type=str, default="./checkpoints")
         self.parser.add_argument("--print_freq", type=int, default=20,
                                  help="print training information frequency (per n iteration)")
-        self.parser.add_argument("--save_freq", type=int, default=1, help="save model frequency (per n epoch)")
+        self.parser.add_argument("--save_freq", type=int, default=1, help="save model.py frequency (per n epoch)")
         self.parser.add_argument("--num_workers", type=int, default=4, help="use n threads to read data")
         self.parser.add_argument("--pretrain", type=str,
                                  default="./yolov1/checkpoints/epoch18.pkl",
-                                 help="pretrain model path")
+                                 help="pretrain model.py path")
         self.parser.add_argument("--random_seed", type=int, default=0, help="random seed for split dataset")
 
         self.opts = self.parser.parse_args()
@@ -46,7 +46,7 @@ class Args(object):
         self.parser.add_argument("--dataset_dir", type=str, default=r"./VOC2012/voc2012_forYolov1/img")
         self.parser.add_argument("--weight_path", type=str,
                                  default="./yolov1/checkpoints/epoch18.pkl",
-                                 help="load path for model weight")
+                                 help="load path for model.py weight")
 
         self.opts = self.parser.parse_args()
         if torch.cuda.is_available():

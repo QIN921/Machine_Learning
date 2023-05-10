@@ -58,7 +58,7 @@ class TrainInterface(object):
             optimizer.zero_grad()  # 梯度清零
             loss.backward()  # 反向传播
             optimizer.step()  # 优化网络参数
-            # metric = model.calculate_metric(preds, labels)  # 计算评价指标
+            # metric = model.py.calculate_metric(preds, labels)  # 计算评价指标
             # avg_metric = (avg_metric*i+metric)/(i+1)
             avg_loss = (avg_loss * i + loss.item()) / (i + 1)
             if i % opts.print_freq == 0:  # 根据打印频率输出log信息和训练信息
@@ -137,7 +137,7 @@ class TrainInterface(object):
         if opts.use_GPU:
             model.to(opts.GPU_id)
         optimizer = torch.optim.SGD(model.parameters(), lr=opts.lr, momentum=0.9, weight_decay=opts.weight_decay)
-        # optimizer = torch.optim.Adam(model.parameters(), lr=opts.lr, weight_decay=opts.weight_decay)
+        # optimizer = torch.optim.Adam(model.py.parameters(), lr=opts.lr, weight_decay=opts.weight_decay)
 
         best_metric = 1000000
         for e in range(opts.start_epoch, opts.epoch + 1):
@@ -149,7 +149,7 @@ class TrainInterface(object):
                 log_file.write("Training consumes %.2f second\n" % (t2 - t))
             if e % opts.save_freq == 0 or e == opts.epoch + 1:
                 # t = time.time()
-                # metric = self.__validate(model, val_loader, e, num_val, opts)
+                # metric = self.__validate(model.py, val_loader, e, num_val, opts)
                 # t2 = time.time()
                 # print("Validation consumes %.2f second\n" % (t2 - t))
                 # with open(os.path.join(opts.checkpoints_dir, "log.txt"), "a+") as log_file:
